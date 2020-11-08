@@ -76,4 +76,3 @@ class Hotel(Resource):
         hoteis = [hotel for hotel in hoteis if hotel['hotel_id']!= hotel_id]
         print(hoteis)
         return {'message':'Hotel deletado.'}
-
