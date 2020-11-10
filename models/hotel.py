@@ -44,3 +44,7 @@ class HotelModel(banco.Model):
     def delete_hotel(self):
         banco.session.delete(self)
         banco.session.commit()
+    
+    @classmethod
+    def get_All(cls):
+        return cls.query.all()
