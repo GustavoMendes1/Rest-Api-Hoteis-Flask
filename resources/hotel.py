@@ -70,7 +70,8 @@ class Hotel(Resource):
         
 
     def delete(self, hotel_id):
-        global hoteis
-        hoteis = [hotel for hotel in hoteis if hotel['hotel_id']!= hotel_id]
-        print(hoteis)
-        return {'message':'Hotel deletado.'}
+        hotel = HotelModel.find_hotel(hotel_id)
+        if hotel:
+            hotel.delete_hotel()
+            return {'message':'Hotel deleted'}
+        return {'message':'Hotel not found'},404
