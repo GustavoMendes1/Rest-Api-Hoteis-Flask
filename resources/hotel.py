@@ -1,5 +1,5 @@
 from flask_restful import Resource, Api, reqparse
-from models.hotel import HotelModel
+from models.HotelModel import HotelModel
 
 class Hoteis(Resource):
     
@@ -53,7 +53,7 @@ class Hotel(Resource):
         hotel = HotelModel.find_hotel(hotel_id)
         if hotel:
             try:
-            hotel.delete_hotel()
+                hotel.delete_hotel()
             except:
                 return{'message': "An internal erro ocurred trying to delete hotel"},500
             return {'message':'Hotel deleted'}
